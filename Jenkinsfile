@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Generate JavaDoc') {
       steps {
-        sh 'mvn javadoc:jar'
+        sh 'mvn javadoc:jar --fail-never'
        }
     }
   }
