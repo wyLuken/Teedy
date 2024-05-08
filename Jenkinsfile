@@ -13,7 +13,6 @@ pipeline {
     }
     stage('Generate JavaDoc') {
       steps {
-        // 使用Maven生成JavaDoc
         sh 'mvn javadoc:jar'
        }
     }
