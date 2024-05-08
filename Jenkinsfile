@@ -28,7 +28,7 @@ pipeline {
       archiveArtifacts artifacts: '**/target/**/*.jar', fingerprint: true
       archiveArtifacts artifacts: '**/target/**/*.war', fingerprint: true
       junit 'target/surefire-reports/*.xml'
-      archiveArtifacts artifacts: '**/target/site/apidocs/**', fingerprint: true
+      archiveArtifacts artifacts: '**/target/site/apidocs/**', fingerprint: true, allowEmptyArchive: true
     }
   }
 }
