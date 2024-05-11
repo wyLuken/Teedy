@@ -14,7 +14,7 @@ pipeline {
     stage('Test') {
       steps {
         sh 'mvn test -DskipTests'
-        sh mvn surefire-report:report
+        sh 'mvn surefire-report:report'
       }
     }
     stage('Generate JavaDoc') {
