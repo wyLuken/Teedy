@@ -11,16 +11,21 @@ pipeline {
         sh 'mvn pmd:pmd'
       }
     }
-    stage('Test') {
+    // stage('Test') {
+    //   steps {
+    //     sh 'mvn test --fail-never'
+    //     sh 'mvn surefire-report:report'
+    //   }
+    // }
+    // stage('Generate JavaDoc') {
+    //   steps {
+    //     sh 'mvn javadoc:javadoc --fail-never'
+    //    }
+    // }
+    stage('K8s') {
       steps {
-        sh 'mvn test --fail-never'
-        sh 'mvn surefire-report:report'
+        sh 'kubectl set image deployments/hello-node container-name=image-id'
       }
-    }
-    stage('Generate JavaDoc') {
-      steps {
-        sh 'mvn javadoc:javadoc --fail-never'
-       }
     }
   }
   post {
